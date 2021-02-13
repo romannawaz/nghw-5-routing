@@ -1,0 +1,11 @@
+.card {
+  width: 30%;
+
+  &-img-top {
+    height: 180px;
+  }
+
+  &-body {
+    border-top: 1px solid lightgrey;
+  }
+}

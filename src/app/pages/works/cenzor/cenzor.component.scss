@@ -1,0 +1,19 @@
+.cenzor-block {
+  padding: 15px;
+
+  border-radius: 5px;
+}
+
+textarea {
+  resize: none;
+
+  height: 150px;
+}
+
+.bad-words {
+  font-size: 20px;
+}
+
+.bad-words-list {
+  color: rgb(255, 87, 87);
+}

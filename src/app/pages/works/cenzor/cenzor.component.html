@@ -1,0 +1,38 @@
+<div class="container mt-5">
+  <div class="cenzor-block bg-light">
+    <p class="bad-words">
+      <b>Bad words: <span class="bad-words-list">{{badWordsList}}</span></b>
+    </p>
+
+    <form class="bad-words-form mt-3" (submit)="addNewBadWord($event)" novalidate>
+      <div class="row">
+        <div class="col-6">
+          <div class="input-group">
+            <input type="text" [(ngModel)]="newBadWord" name="newBadWord" class="form-control"
+              [class.is-invalid]="textFieldIsEmpty" placeholder="Word here.." pattern="^.+$" required>
+            <div class="invalid-feedback">
+              Field is empty!
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <button type="submit" class="btn btn-warning" style="width: 100%">Add</button>
+        </div>
+        <div class="col-3">
+          <button type="button" class="btn reset-btn btn-danger" style="width: 100%"
+            (click)="clearBadWordsList()">Reset</button>
+        </div>
+      </div>
+    </form>
+
+    <form class="cenzor-form row mt-3" (submit)="cenzorFormSubmit($event)" novalidate>
+      <div class="form-group">
+        <textarea class="text form-control" placeholder="Text here.." pattern="^\S+$" [(ngModel)]="text" name="text"
+          required></textarea>
+      </div>
+      <div class="d-grid mt-3">
+        <button type="submit" class="btn btn-success">Cenzor</button>
+      </div>
+    </form>
+  </div>
+</div>

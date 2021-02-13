@@ -1,0 +1,20 @@
+<ul class="nav nav-tabs d-flex mt-2">
+  <li class="d-flex align-items-center">
+    <p>Last works >>></p>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[ 'cenzor' ]" routerLinkActive="active">Cenzor</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[ 'userlist' ]" routerLinkActive="active">User List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="[ 'phonebook' ]" routerLinkActive="active">Phone Book</a>
+  </li>
+
+  <li class="BackToHome d-flex align-items-center">
+    <a [routerLink]="[ '/' ]">Back to >>> Home</a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>

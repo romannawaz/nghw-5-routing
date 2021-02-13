@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-5">
+      <form name="add-user-form" (submit)="editStatus ? saveChanges($event) : addUser($event)" novalidate>
+
+        <div class="form-group">
+          <label for="inputLogin">Login</label>
+          <input type="text" class="form-control" id="inputLogin" placeholder="Enter login" pattern="^[a-zA-Z]{4,16}$"
+            [(ngModel)]="userLogin" name="userLogin" required>
+          <div class="invalid-feedback">
+            Invalid value!
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Enter password"
+            pattern="^(\w|[-_.]){4,16}$" [(ngModel)]="userPassword" name="userPassword" required>
+          <div class="invalid-feedback">
+            Invalid value!
+          </div>
+        </div>
+
+        <div class="form-group mt-3">
+          <label for="inputEmail">Email address</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="Enter email"
+            pattern="^[\w.-]+@\w+\.\w{2,3}$" [(ngModel)]="userEmail" name="userEmail" required>
+          <div class="invalid-feedback">
+            Invalid value!
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success btn-add-user mt-4">
+          {{ editStatus ? 'Save Changes' : 'Add User' }}
+        </button>
+      </form>
+    </div>
+    <div class="col-7">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Login</th>
+            <th scope="col">Password</th>
+            <th scope="col">Email</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of USERS; index as id">
+            <td scope="col">{{ id + 1 }}</td>
+            <td scope="col">{{ user.login }}</td>
+            <td scope="col">{{ user.password }}</td>
+            <td scope="col">{{ user.email }}</td>
+            <td scope="col"><button type="button" class="btn btn-warning" (click)="editUser(id)">Edit</button></td>
+            <td scope="col"><button type="button" class="btn btn-danger" (click)="deleteUser(id)"
+                [disabled]="editStatus">Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
